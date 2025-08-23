@@ -1,0 +1,13 @@
+TEST TERMS OF SERVICE
+
+This is a test terms of service document.
+
+1. User Agreement: By using this service, you agree to be bound by these terms.
+
+2. Data Collection: We may collect and process your personal information.
+
+3. Liability: Company shall not be liable for any damages.
+
+4. Termination: We reserve the right to terminate your account at any time without notice.
+
+END OF DOCUMENT
