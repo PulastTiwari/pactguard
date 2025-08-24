@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "api/index.py",
@@ -9,13 +10,15 @@
       "use": "@vercel/next"
     }
   ],
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "@vercel/python@3.9"
+    }
+  },
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "api/index.py"
-    },
-    {
-      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
