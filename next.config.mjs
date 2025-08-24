@@ -9,8 +9,19 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove standalone output for Vercel - not needed
-  // outputFileTracingRoot: process.cwd(), // Not needed for Vercel
+  async rewrites() {
+    // Local development proxy so frontend fetch("/api/*") hits FastAPI backend on :8000
+    // In production (Vercel) vercel.json handles this.
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'http://localhost:8000/:path*'
+        }
+      ]
+    }
+    return []
+  }
 }
 
 export default nextConfig
