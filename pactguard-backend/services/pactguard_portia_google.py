@@ -8,8 +8,15 @@ from typing import Dict, Any
 from datetime import datetime
 
 # Portia SDK imports
-from portia import Portia, Config, PortiaToolRegistry, StorageClass, LLMProvider
-from portia.cli import CLIExecutionHooks
+try:
+    from portia import Portia, Config, PortiaToolRegistry, StorageClass, LLMProvider
+    from portia.cli import CLIExecutionHooks
+except ImportError:
+    # Use mock Portia module for development
+    import sys
+    from pathlib import Path
+    sys.path.append(str(Path(__file__).parent.parent))
+    from portia import Portia, Config, PortiaToolRegistry, StorageClass, LLMProvider, CLIExecutionHooks
 
 
 class PactGuardPortiaGoogle:
