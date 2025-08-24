@@ -99,6 +99,22 @@ PORTIA_API_KEY=prt-Rg1TFIYO.uKUuhs0KdK8Cl7gHFOiWARoNZJDfuXDQ
 GOOGLE_API_KEY=AIzaSyBtWPKbzCDVjkOcVt-UsIvLBXjl_F52gzU
 ```
 
+### 🔒 Security Best Practices
+
+**IMPORTANT: Never commit your .env files or API keys directly to GitHub!**
+
+The `.gitignore` file already includes these environment files to prevent them from being tracked:
+
+```gitignore
+# Environment variables - NEVER commit API keys to version control
+.env
+.env.local
+.env.production
+.env.staging
+```
+
+Your application automatically detects and uses the `GOOGLE_API_KEY` and `PORTIA_API_KEY` from the environment variables, allowing Portia AI and Google services to work correctly without exposing sensitive credentials in your codebase.
+
 ### API Endpoints
 
 - **POST /analyze**: Direct text analysis
@@ -234,16 +250,118 @@ python3 main_portia.py  # Runs on http://localhost:8000
 
 ---
 
+## 🐳 Docker Deployment
+
+### Quick Start
+
+```bash
+# Run with Docker
+./docker-deploy.sh
+
+# Manual Docker commands
+docker-compose build
+docker-compose up -d
+
+# Check status
+docker-compose ps
+docker-compose logs -f
+```
+
+### Docker Configuration
+
+- **Frontend**: Multi-stage build with Node.js 20 Alpine
+- **Backend**: Python 3.13 slim with health checks
+- **Network**: Bridge network for service communication
+- **Ports**: Frontend (3000), Backend (8000)
+- **Health Checks**: Automated health monitoring
+- **Environment**: Secure API key injection via .env file
+
+### Container Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Backend       │
+│   (Next.js)     │◄──►│   (FastAPI)     │
+│   Port: 3000    │    │   Port: 8000    │
+└─────────────────┘    └─────────────────┘
+         │                      │
+         └──────────────────────┘
+              Docker Network
+```
+
+## 🤖 LLM Model Optimization Suggestions
+
+### Current Architecture
+
+- **Primary LLM**: Google AI (Gemini) via Portia AI integration
+- **Usage**: Legal document analysis, risk assessment, recommendations generation
+- **Fallback**: Mock analysis for development/demo environments
+
+### Recommended LLM Enhancements
+
+#### 1. Multi-Model Strategy
+
+```python
+# Implement model routing based on task complexity
+def get_optimal_model(task_type, document_length):
+    if task_type == "summary" and document_length < 1000:
+        return "gemini-flash"  # Fast, cost-effective
+    elif task_type == "legal_analysis":
+        return "gemini-pro"    # High accuracy
+    elif task_type == "complex_reasoning":
+        return "o1-preview"    # Advanced reasoning
+```
+
+#### 2. Prompt Optimization
+
+- **Legal Domain**: Fine-tune prompts for contract analysis specifics
+- **Risk Assessment**: Structured output format for consistent scoring
+- **Business Impact**: Template-driven impact analysis generation
+
+#### 3. Caching Strategy
+
+```python
+# Implement intelligent caching
+@lru_cache(maxsize=128)
+def analyze_document_cached(doc_hash, analysis_type):
+    # Cache expensive LLM calls for similar documents
+    pass
+```
+
+#### 4. Model Ensemble
+
+- **Primary**: Portia AI + Gemini for legal reasoning
+- **Validation**: Claude/GPT-4 for cross-verification on high-risk documents
+- **Specialized**: Legal domain models for contract-specific terms
+
+#### 5. Cost Optimization
+
+- **Token Management**: Implement sliding window for large documents
+- **Batch Processing**: Group similar analyses for efficiency
+- **Smart Preprocessing**: Extract key sections before LLM analysis
+
+### Implementation Suggestions
+
+1. **Model Router**: `/services/model_router.py` for intelligent model selection
+2. **Prompt Library**: `/prompts/legal_templates/` for domain-specific prompts
+3. **Cache Layer**: Redis/MongoDB for document analysis caching
+4. **Monitoring**: Token usage tracking and cost optimization metrics
+
+---
+
 ## Instructions for Another LLM
 
 When working with this project:
 
-1. **Start both servers**: Frontend (npm run dev) and Backend (python3 main_portia.py)
-2. **Check environment variables**: Ensure API keys are properly configured
-3. **Import handling**: The Portia integration uses a fallback system - mock for development, real SDK for production
-4. **Type errors**: Use type assertions (`assert self.portia is not None`) when working with Optional types
-5. **Error patterns**: Follow the decorator pattern for consistent API error handling
-6. **UI updates**: Components use shadcn/ui - maintain consistent styling patterns
-7. **API integration**: All endpoints return structured JSON with status, error handling, and timestamps
+1. **Docker First**: Use `./docker-deploy.sh` for consistent environment setup
+2. **Start both servers**: Frontend (npm run dev) and Backend (python3 main_portia.py)
+3. **Check environment variables**: Ensure API keys are properly configured in .env
+4. **Import handling**: The Portia integration uses a fallback system - mock for development, real SDK for production
+5. **Type errors**: Use type assertions (`assert self.portia is not None`) when working with Optional types
+6. **Error patterns**: Follow the decorator pattern for consistent API error handling
+7. **UI updates**: Components use shadcn/ui - maintain consistent styling patterns
+8. **API integration**: All endpoints return structured JSON with status, error handling, and timestamps
+9. **LLM Optimization**: Consider implementing model routing, prompt templates, and caching for production use
+10. **Security**: Always use Docker .env files, never commit API keys to git
 
-The project is designed to work seamlessly in both development (with mocks) and production (with real APIs) environments.
+The project is designed to work seamlessly in both development (with mocks) and production (with real APIs) environments, with full Docker containerization support.

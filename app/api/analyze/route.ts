@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
-import type { PactGuardAnalysisReport } from "@/types"
+import type { PactGuardAnalysisReport, AnalysisResult } from "@/types"
+import { convertToLegacyFormat } from "@/lib/format-converter"
 
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000"
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8001"
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,7 +41,10 @@ export async function POST(request: NextRequest) {
     console.log(`   📋 Plan Run ID: ${backendResult.portia_integration?.plan_run_id || 'N/A'}`)
     console.log(`   🎯 Portia status: ${backendResult.portia_integration?.status}`)
     
-    return NextResponse.json(backendResult)
+    // Convert to legacy format for frontend compatibility
+    const convertedResult = convertToLegacyFormat(backendResult)
+    
+    return NextResponse.json(convertedResult)
   } catch (error) {
     console.error("❌ Frontend API error:", error)
     return NextResponse.json({ error: "Failed to analyze document" }, { status: 500 })

@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
 import type { PactGuardAnalysisReport } from "@/types"
+import { convertToLegacyFormat } from "@/lib/format-converter"
 
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000"
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8001"
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,10 +31,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // The backend now returns the correct structure, so no transformation is needed.
+    // The backend now returns the correct structure, so convert to legacy format
     const backendResult: PactGuardAnalysisReport = await backendResponse.json()
+    const convertedResult = convertToLegacyFormat(backendResult)
 
-    return NextResponse.json(backendResult)
+    return NextResponse.json(convertedResult)
   } catch (error) {
     console.error("File analysis API error:", error)
     return NextResponse.json({ error: "Failed to analyze file" }, { status: 500 })

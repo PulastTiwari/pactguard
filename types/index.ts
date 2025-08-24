@@ -95,7 +95,35 @@ export interface LegacyAnalysisReport {
 export interface AnalysisResult {
   documentType: string;
   overallRisk: "Low" | "Medium" | "High";
-  summary: string;
+  summary: {
+    overall_risk: "Low" | "Medium" | "High";
+    key_concerns: string[];
+    recommendation: string;
+  };
+  red_flags: {
+    id: string;
+    severity: "Low" | "Medium" | "High";
+    title: string;
+    explanation: string;
+    originalClause: string;
+    clause: string;
+  }[];
+  obligations: {
+    id: string;
+    severity: "Low" | "Medium" | "High";
+    title: string;
+    explanation: string;
+    originalClause: string;
+    clause: string;
+  }[];
+  rights_and_data_usage: {
+    id: string;
+    severity: "Low" | "Medium" | "High";
+    title: string;
+    explanation: string;
+    originalClause: string;
+    clause: string;
+  }[];
   clauses: {
     type: "Positive" | "Negative" | "Neutral";
     clause: string;

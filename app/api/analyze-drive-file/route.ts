@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { convertToLegacyFormat } from '@/lib/format-converter'
+import type { PactGuardAnalysisReport } from '@/types'
 
 export async function POST(request: NextRequest) {
   console.log('📁 Google Drive analysis request received')
@@ -8,7 +10,7 @@ export async function POST(request: NextRequest) {
     console.log('📁 Request body:', body)
     
     // Forward the request to the backend
-    const backendResponse = await fetch('http://localhost:8000/analyze-drive-file', {
+    const backendResponse = await fetch('http://localhost:8001/analyze-drive-file', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,10 +27,13 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    const result = await backendResponse.json()
-    console.log('✅ Google Drive analysis successful:', result.id)
+    const backendResult: PactGuardAnalysisReport = await backendResponse.json()
+    console.log('✅ Google Drive analysis successful:', backendResult.id)
     
-    return NextResponse.json(result)
+    // Convert to legacy format
+    const convertedResult = convertToLegacyFormat(backendResult)
+    
+    return NextResponse.json(convertedResult)
     
   } catch (error) {
     console.error('❌ Google Drive analysis error:', error)

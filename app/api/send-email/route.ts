@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     
     // Try to forward the request to the backend first
     try {
-      const backendResponse = await fetch('http://localhost:8000/send-email', {
+      const backendResponse = await fetch('http://localhost:8001/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

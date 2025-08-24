@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import PactGuardAnalyzer from "@/components/pactguard-analyzer"
+import AdvancedFeatures from "@/components/advanced-features"
 
 export default function HomePage() {
   return (
@@ -54,6 +55,11 @@ export default function HomePage() {
       {/* Main Analyzer Component */}
       <section aria-label="Document analyzer">
         <PactGuardAnalyzer />
+      </section>
+
+      {/* Advanced Features */}
+      <section aria-label="Advanced analysis features">
+        <AdvancedFeatures />
       </section>
 
       {/* How It Works Section */}

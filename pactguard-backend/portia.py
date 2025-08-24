@@ -42,8 +42,76 @@ class CLIExecutionHooks:
 class MockPlanRun:
     def __init__(self, task: str):
         self.task = task
+        self.id = f"run_{int(time.time())}"
         self.status = "completed"
+        self.outputs = MockPlanOutput(task)
         self.result = {"message": f"Mock execution of: {task}"}
+
+
+class MockPlanOutput:
+    def __init__(self, task: str):
+        # Generate realistic legal analysis output with proper risk scoring
+        if "legal risks" in task.lower() or "analyze" in task.lower():
+            self.final_output = self._generate_legal_analysis()
+        elif "gmail" in task.lower() or "email" in task.lower():
+            self.final_output = "Email sent successfully with legal analysis summary"
+        elif "drive" in task.lower():
+            self.final_output = self._generate_drive_analysis()
+        else:
+            self.final_output = f"Analysis completed for: {task[:100]}..."
+    
+    def _generate_legal_analysis(self):
+        return """**LEGAL DOCUMENT RISK ANALYSIS**
+
+**OVERALL RISK SCORE: 7/10 (HIGH RISK)**
+
+**EXECUTIVE SUMMARY:**
+This legal document contains several high-risk clauses that could significantly impact your rights and obligations. Key concerns include broad liability limitations, unclear termination procedures, and potentially problematic data handling provisions.
+
+**CRITICAL RISK FACTORS:**
+
+1. **LIABILITY WAIVER (Risk Level: 9/10)**
+   - The document contains an extremely broad liability waiver
+   - Provider disclaims responsibility for virtually all damages
+   - Recommendation: Negotiate narrower liability limitations
+
+2. **DATA PRIVACY CONCERNS (Risk Level: 6/10)**
+   - Vague language around data collection and usage
+   - No clear data retention or deletion policies
+   - Recommendation: Request detailed data handling procedures
+
+3. **TERMINATION CLAUSES (Risk Level: 7/10)**
+   - Unilateral termination rights heavily favor provider
+   - Short notice periods for contract termination
+   - Recommendation: Negotiate mutual termination protections
+
+**BUSINESS IMPACT:**
+- **Financial Exposure:** High - Unlimited liability exposure
+- **Operational Risk:** Medium - Service disruption potential
+- **Compliance Risk:** Medium - Data privacy compliance issues
+
+**IMMEDIATE ACTION REQUIRED:**
+1. Legal review of liability clauses before signing
+2. Negotiate data handling provisions
+3. Consider insurance coverage for excluded liabilities"""
+
+    def _generate_drive_analysis(self):
+        return """**GOOGLE DRIVE DOCUMENT ANALYSIS**
+
+**RISK ASSESSMENT: 6/10 (MEDIUM-HIGH RISK)**
+
+Document successfully retrieved and analyzed from Google Drive.
+
+**KEY FINDINGS:**
+- Contract contains standard commercial terms with some concerning provisions
+- Intellectual property clauses need clarification
+- Payment terms are generally favorable
+- Force majeure provisions are comprehensive
+
+**RECOMMENDATIONS:**
+1. Review IP ownership clauses in Section 5
+2. Clarify payment dispute resolution process
+3. Consider adding data breach notification requirements"""
 
 
 class Portia:
