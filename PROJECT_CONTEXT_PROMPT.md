@@ -92,14 +92,14 @@ PactGuard/
 
 ```bash
 # Frontend (.env.local)
-GOOGLE_API_KEY=AIzaSyBtWPKbzCDVjkOcVt-UsIvLBXjl_F52gzU
+GOOGLE_API_KEY=your_google_api_key_here
 
 # Backend (.env)
-PORTIA_API_KEY=prt-Rg1TFIYO.uKUuhs0KdK8Cl7gHFOiWARoNZJDfuXDQ
-GOOGLE_API_KEY=AIzaSyBtWPKbzCDVjkOcVt-UsIvLBXjl_F52gzU
+PORTIA_API_KEY=your_portia_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
 ```
 
-### 🔒 Security Best Practices
+###  Security Best Practices
 
 **IMPORTANT: Never commit your .env files or API keys directly to GitHub!**
 
@@ -235,14 +235,14 @@ python3 main_portia.py  # Runs on http://localhost:8000
 
 ### Features Delivered:
 
-- ✅ Full-stack legal AI application
-- ✅ Portia AI + Google AI integration
-- ✅ Google Drive & Gmail workflows
-- ✅ Production-ready deployment
-- ✅ Comprehensive error handling
-- ✅ Modern UI with dark/light themes
-- ✅ TypeScript type safety
-- ✅ Clean, documented codebase
+-  Full-stack legal AI application
+-  Portia AI + Google AI integration
+-  Google Drive & Gmail workflows
+-  Production-ready deployment
+-  Comprehensive error handling
+-  Modern UI with dark/light themes
+-  TypeScript type safety
+-  Clean, documented codebase
 
 ## Copyright & Attribution
 

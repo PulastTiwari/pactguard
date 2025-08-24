@@ -1,6 +1,6 @@
 # PactGuard Docker & Optimization Summary
 
-## ✅ Docker Containerization Complete
+##  Docker Containerization Complete
 
 ### Files Created/Updated:
 
@@ -24,14 +24,14 @@
 - Redundant backend `README.md`
 - Removed duplicate `node_modules/` entry in `.gitignore`
 
-#### 🔧 Configuration Updates:
+####  Configuration Updates:
 
 - `next.config.mjs`: Added `output: 'standalone'` for Docker optimization
 - `requirements.txt`: Pinned exact versions for reproducible builds
 - `.gitignore`: Added Docker-specific exclusions
 - Security improvements with enhanced environment variable protection
 
-#### 🚀 Docker Features:
+####  Docker Features:
 
 - **Multi-stage builds** for smaller image sizes
 - **Health checks** for both frontend and backend
@@ -81,7 +81,7 @@ def get_optimal_model(task_complexity, token_count):
 - Real-time cost tracking
 - Legal domain fine-tuning
 
-## 🚀 Deployment Instructions
+##  Deployment Instructions
 
 ### Option 1: Docker Deployment (Recommended)
 
@@ -113,9 +113,9 @@ python3 main_portia.py
 - **API Docs**: http://localhost:8000/docs
 - **Health Checks**: http://localhost:8000/health
 
-## 📊 Project Status
+##  Project Status
 
-### ✅ Completed:
+###  Completed:
 
 - Full Docker containerization with security best practices
 - Comprehensive cleanup of redundant files and code
@@ -124,7 +124,7 @@ python3 main_portia.py
 - Enhanced documentation with LLM optimization strategies
 - Security improvements with proper environment handling
 
-### 🎯 Next Steps (for production):
+###  Next Steps (for production):
 
 1. Start Docker Desktop and run `./docker-deploy.sh`
 2. Implement model routing for cost optimization

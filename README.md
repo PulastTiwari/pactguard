@@ -11,18 +11,18 @@
 
 PactGuard helps individuals, small businesses, and legal professionals quickly assess legal documents for potential risks, providing structured analysis with numerical risk scores and actionable recommendations.
 
-## ✨ Features
+## Features
 
-🔍 **Smart Document Analysis** - AI-powered legal document risk assessment with detailed explanations  
-📊 **Quantitative Risk Scoring** - Numerical risk evaluation (1-10 scale) with categorized findings  
-📧 **Automated Email Reports** - Professional analysis reports delivered via Gmail integration  
-☁️ **Google Workspace Integration** - Seamless OAuth 2.0 integration with Drive and Gmail  
-🎨 **Modern Interface** - Responsive UI with dark/light themes and professional design  
-🐳 **Easy Deployment** - One-command Docker setup for quick installation  
-🔒 **Secure & Private** - Environment-based configuration with secure credential management  
-⚡ **High Performance** - Async FastAPI backend with optimized response times
+**Smart Document Analysis** - AI-powered legal document risk assessment with detailed explanations  
+**Quantitative Risk Scoring** - Numerical risk evaluation (1-10 scale) with categorized findings  
+**Automated Email Reports** - Professional analysis reports delivered via Gmail integration  
+**Google Workspace Integration** - Seamless OAuth 2.0 integration with Drive and Gmail  
+**Modern Interface** - Responsive UI with dark/light themes and professional design  
+**Easy Deployment** - One-command Docker setup for quick installation  
+**Secure  **Secure & Private** Private** - Environment-based configuration with secure credential management  
+**High Performance** - Async FastAPI backend with optimized response times
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Docker Deployment (Recommended)
 
@@ -87,7 +87,7 @@ npm run dev
 - [Roadmap](#-roadmap)
 - [License](#-license)
 
-## 🎯 Demo & Screenshots
+## Demo & Screenshots
 
 ### Live Demo
 
@@ -100,9 +100,7 @@ _(Add your deployed demo link here)_
 3. **Email Integration**: Receive professional reports directly in your inbox
 4. **Google Drive**: Analyze documents directly from your Drive storage
 
-## 💡 Project Vision
-
-## 💡 Project Vision
+## Project Vision
 
 ### The Problem
 
@@ -118,7 +116,7 @@ PactGuard bridges the gap between traditional legal workflows and modern AI capa
 - **Legal Practitioners**: Accelerated due diligence and systematic issue flagging
 - **Legal Education**: Structured analysis frameworks and pedagogical tools
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 PactGuard implements a decoupled, service-oriented architecture optimized for scalability and maintainability.
 
@@ -237,7 +235,7 @@ We welcome contributions from the community! PactGuard is designed to be communi
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-## 🗺️ Roadmap
+## Roadmap
 
 ### Short Term (Q2 2025)
 
@@ -262,7 +260,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 See [ROADMAP.md](ROADMAP.md) for the complete technical roadmap.
 
-## 🛡️ Security & Privacy
+## Security ##  Security & Privacy Privacy
 
 - Environment-based configuration for secure credential management
 - No storage of sensitive legal documents on servers
@@ -299,6 +297,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-⭐ **Star this repository if PactGuard helps you with legal document analysis!**
+**Star this repository if PactGuard helps you with legal document analysis!**
 
-Built with ❤️ by [Pulast Singh Tiwari](https://github.com/PulastTiwari) for the legal tech community.
+Built with love by [Pulast Singh Tiwari](https://github.com/PulastTiwari) for the legal tech community.
