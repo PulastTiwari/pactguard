@@ -9,7 +9,7 @@
 - **Python Environment**: Python 3.13.6 with virtual environment
 - **Dependencies**: All core packages installed
   - FastAPI 0.116.1 (latest stable)
-  - OpenAI 1.101.0 (latest API client)
+  - Portia SDK (multi-agent framework)
   - Pydantic 2.11.7 (data validation)
   - Uvicorn 0.35.0 (ASGI server)
 - **Project Structure**: Complete directory layout established
@@ -57,7 +57,7 @@ pactguard-backend/
 #### Required Environment Variables
 
 ```bash
-OPENAI_API_KEY=your_openai_api_key_here
+PORTIA_API_KEY=your_portia_api_key_here
 REDIS_URL=redis://localhost:6379
 API_KEY=pactguard_development_key
 LOG_LEVEL=INFO
@@ -96,7 +96,7 @@ LOG_LEVEL=INFO
 #### Phase 4: API Integration
 
 - [ ] Implement `/analyze` endpoint
-- [ ] Connect to OpenAI API
+- [ ] Connect to Portia AI with proper LLM provider
 - [ ] Add comprehensive error handling
 
 ### Development Commands
@@ -133,7 +133,7 @@ pytest tests/
 ### Technology Stack Confirmed
 
 - **Framework**: FastAPI (high-performance, async)
-- **AI/ML**: OpenAI GPT-4 API
+- **AI/ML**: Portia SDK multi-agent framework
 - **Data Validation**: Pydantic v2
 - **Server**: Uvicorn ASGI
 - **Environment**: Python 3.13.6

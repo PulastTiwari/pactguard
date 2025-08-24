@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
+import GoogleScript from "@/components/google-script"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -30,7 +31,8 @@ html {
 }
         `}</style>
       </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`} suppressHydrationWarning>
+        <GoogleScript />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="min-h-screen bg-background text-foreground">
             <main className="container mx-auto px-4 py-6 sm:py-8 lg:py-12 max-w-5xl">{children}</main>
