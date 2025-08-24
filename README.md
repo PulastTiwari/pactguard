@@ -77,15 +77,15 @@ cp .env.local.template .env.local
 npm run dev
 ```
 
-## 📖 Table of Contents
+## Table of Contents
 
-- [Demo & Screenshots](#-demo--screenshots)
-- [Project Vision](#-project-vision)
-- [Technical Architecture](#-technical-architecture)
-- [API Documentation](#-api-documentation)
-- [Contributing](#-contributing)
-- [Roadmap](#-roadmap)
-- [License](#-license)
+- [Demo & Screenshots](#demo--screenshots)
+- [Project Vision](#project-vision)
+- [Technical Architecture](#technical-architecture)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [Roadmap](#roadmap)
+- [License](#license)
 
 ## Demo & Screenshots
 
@@ -162,7 +162,7 @@ async def run_legal_analysis(self, text: str) -> Dict[str, Any]:
         raise AnalysisException(f"Failed to analyze document: {str(e)}")
 ```
 
-## 📋 API Documentation
+## API Documentation
 
 ### Core Endpoints
 
@@ -269,7 +269,7 @@ See [ROADMAP.md](ROADMAP.md) for the complete technical roadmap.
 
 See [SECURITY.md](SECURITY.md) for security policies and reporting procedures.
 
-## 🏆 Recognition
+## Recognition
 
 **AgentHacks 2025 Project**
 
@@ -277,7 +277,7 @@ See [SECURITY.md](SECURITY.md) for security policies and reporting procedures.
 - Timeline: 5-day intensive development period
 - Focus: Rapid prototyping with production-ready architecture
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

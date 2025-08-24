@@ -1,9 +1,9 @@
 import { Shield, Zap, Brain, Github, ExternalLink } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import PactGuardAnalyzer from "@/components/pactguard-analyzer"
-import AdvancedFeatures from "@/components/advanced-features"
+import { ThemeToggle } from "../components/theme-toggle"
+import { Button } from "../components/ui/button"
+import { Card, CardContent } from "../components/ui/card"
+import PactGuardAnalyzer from "../components/pactguard-analyzer"
+import AdvancedFeatures from "../components/advanced-features"
 
 export default function HomePage() {
   return (
@@ -111,7 +111,7 @@ export default function HomePage() {
       <footer className="text-center space-y-4 pt-8 border-t border-border/50">
         <div className="flex items-center justify-center gap-4">
           <Button variant="outline" size="sm" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="https://github.com/PulastTiwari/pactguard" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <Github className="h-4 w-4" aria-hidden="true" />
               View Source
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
