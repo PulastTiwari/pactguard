@@ -21,19 +21,6 @@ function getSeverityVariant(severity: Severity): "default" | "secondary" | "dest
   }
 }
 
-function getSeverityColor(severity: Severity): string {
-  switch (severity) {
-    case "Low":
-      return "text-emerald-700 dark:text-emerald-300"
-    case "Medium":
-      return "text-amber-700 dark:text-amber-300"
-    case "High":
-      return "text-red-700 dark:text-red-300"
-    default:
-      return "text-slate-600 dark:text-slate-400"
-  }
-}
-
 export default function AnalysisReport({ result }: AnalysisReportProps) {
   return (
     <div className="space-y-6" role="main" aria-label="Document analysis results">

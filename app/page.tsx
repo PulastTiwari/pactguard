@@ -26,7 +26,7 @@ export default function HomePage() {
 
           <div className="space-y-4">
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Transform complex legal documents into simple, scannable "nutrition labels" with our AI Assembly Line
+              Transform complex legal documents into simple, scannable &quot;nutrition labels&quot; with our AI Assembly Line
             </p>
 
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">

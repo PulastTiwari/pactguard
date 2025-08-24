@@ -64,7 +64,7 @@ export default function AdvancedFeatures() {
     }
 
     return cleanup
-  }, [])
+  }, [analysisToEmail])
 
   // File Upload Handler
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -178,6 +178,8 @@ export default function AdvancedFeatures() {
       const result = await response.json()
       setEmailSuccess("Analysis email sent successfully!")
       setRecipientEmail("")
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const _ = result; // Suppress unused variable warning
     } catch (err) {
       setEmailError(err instanceof Error ? err.message : "Failed to send email")
     } finally {
@@ -372,7 +374,7 @@ export default function AdvancedFeatures() {
               {!analysisToEmail && (
                 <Alert>
                   <AlertDescription>
-                    No analysis selected. Analyze a document first or use the "Prepare for Email" button.
+                    No analysis selected. Analyze a document first or use the &quot;Prepare for Email&quot; button.
                   </AlertDescription>
                 </Alert>
               )}

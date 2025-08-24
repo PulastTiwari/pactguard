@@ -3,13 +3,14 @@ FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
-RUN npm ci --omit=dev
+RUN \
+    if [ -f package-lock.json ]; then npm ci --omit=dev; \
+    else npm install --omit=dev; fi
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -17,9 +18,17 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Install dev dependencies for build
+RUN \
+    if [ -f package-lock.json ]; then npm ci; \
+    else npm install; fi
+
 # Environment variables for build
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
+
+# Use Docker-specific configuration
+RUN cp next.config.docker.mjs next.config.mjs
 
 # Build the application
 RUN npm run build
@@ -30,6 +39,9 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+
+# Install wget for health checks
+RUN apk add --no-cache wget
 
 # Create nextjs user
 RUN addgroup --system --gid 1001 nodejs
