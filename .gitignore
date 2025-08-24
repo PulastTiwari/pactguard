@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment variables - NEVER commit API keys to version control
+.env
+.env.local
+.env.production
+.env.staging
+
+# Cache directories
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Project specific
+.portia/
+*.backup
+node_modules/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Additional security
+*.key
+*.pem
+*.cert
+*.csr
+*.p12
+secrets/
+credentials/
+
+# Test outputs
+test-results/
+coverage/
