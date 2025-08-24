@@ -124,7 +124,7 @@ export default function HomePage() {
         </p>
 
         <p className="text-xs text-muted-foreground">
-          © 2024 PactGuard. This tool provides educational analysis and should not replace professional legal advice.
+          © 2025 PactGuard. This tool provides educational analysis and should not replace professional legal advice.
         </p>
       </footer>
     </div>
