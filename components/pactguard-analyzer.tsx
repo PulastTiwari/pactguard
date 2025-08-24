@@ -8,7 +8,7 @@ import { FileText, Sparkles, RotateCcw, Mail } from "lucide-react"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
 import type { AnalysisResult } from "@/types"
 import AnalysisReport from "./analysis-report"
-import { AnalysisSharing } from "@/lib/analysis-sharing"
+import { AnalysisSharing } from "../lib/analysis-sharing"
 
 export default function PactGuardAnalyzer() {
   const [text, setText] = useState("")

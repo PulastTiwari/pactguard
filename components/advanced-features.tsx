@@ -11,7 +11,7 @@ import { LoadingSpinner } from "@/components/ui/loading-spinner"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import type { AnalysisResult, EmailRequest } from "@/types"
 import AnalysisReport from "./analysis-report"
-import { AnalysisSharing } from "@/lib/analysis-sharing"
+import { AnalysisSharing } from "../lib/analysis-sharing"
 
 interface DemoStatus {
   portia_client_initialized: boolean
