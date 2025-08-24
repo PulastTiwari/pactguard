@@ -10,11 +10,6 @@
       "use": "@vercel/next"
     }
   ],
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "@vercel/python@3.9"
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
