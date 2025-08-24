@@ -120,8 +120,7 @@ export default function HomePage() {
         </div>
 
         <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Powered by the AI Assembly Line - A sophisticated multi-agent workflow for production-ready legal document
-          analysis. Built for the hackathon to democratize legal literacy.
+          Built for AgentHacks 2025, PactGuard uses the Portia AI SDK to power its AI Assembly Line, a multi-agent workflow designed to make complex legal documents simple and clear for everyone.
         </p>
 
         <p className="text-xs text-muted-foreground">
