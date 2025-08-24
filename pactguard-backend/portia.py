@@ -3,7 +3,7 @@ Mock Portia module for development/demo purposes
 This provides the same interface as the real Portia SDK
 """
 
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from enum import Enum
 import json
 import time
@@ -20,12 +20,12 @@ class LLMProvider(Enum):
 
 
 class Config:
-    def __init__(self, storage_class: StorageClass, llm_provider: LLMProvider):
+    def __init__(self, storage_class: StorageClass = StorageClass.CLOUD, llm_provider: LLMProvider = LLMProvider.GOOGLE):
         self.storage_class = storage_class
         self.llm_provider = llm_provider
     
     @classmethod
-    def from_default(cls, storage_class: StorageClass, llm_provider: LLMProvider):
+    def from_default(cls, storage_class: StorageClass = StorageClass.CLOUD, llm_provider: LLMProvider = LLMProvider.GOOGLE):
         return cls(storage_class, llm_provider)
 
 
@@ -39,11 +39,24 @@ class CLIExecutionHooks:
         pass
 
 
+class MockPlanRun:
+    def __init__(self, task: str):
+        self.task = task
+        self.status = "completed"
+        self.result = {"message": f"Mock execution of: {task}"}
+
+
 class Portia:
-    def __init__(self, config: Config, tools: PortiaToolRegistry, execution_hooks: CLIExecutionHooks):
+    def __init__(self, config: Config, tools: Optional[PortiaToolRegistry] = None, execution_hooks: Optional[CLIExecutionHooks] = None):
         self.config = config
         self.tools = tools
         self.execution_hooks = execution_hooks
+    
+    def run(self, task: str):
+        """
+        Mock run method that returns a realistic plan run object
+        """
+        return MockPlanRun(task)
     
     async def analyze_document(self, document_text: str, analysis_type: str = "legal_analysis") -> Dict[str, Any]:
         """

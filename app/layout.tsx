@@ -1,9 +1,8 @@
 import type React from "react"
-import type { Metadata, Viewport } from "next"
+import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
-import GoogleScript from "@/components/google-script"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -12,11 +11,7 @@ export const metadata: Metadata = {
   generator: "v0.app",
   keywords: "legal document analysis, AI legal assistant, terms of service analyzer, privacy policy checker",
   authors: [{ name: "PactGuard Team" }],
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
+  viewport: "width=device-width, initial-scale=1",
 }
 
 export default function RootLayout({
@@ -35,8 +30,7 @@ html {
 }
         `}</style>
       </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`} suppressHydrationWarning>
-        <GoogleScript />
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="min-h-screen bg-background text-foreground">
             <main className="container mx-auto px-4 py-6 sm:py-8 lg:py-12 max-w-5xl">{children}</main>

@@ -25,7 +25,7 @@ export default function HomePage() {
 
           <div className="space-y-4">
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Transform complex legal documents into simple, scannable <span className="text-white font-semibold">"nutrition labels"</span> with our AI Assembly Line
+              Transform complex legal documents into simple, scannable "nutrition labels" with our AI Assembly Line
             </p>
 
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
@@ -119,7 +119,7 @@ export default function HomePage() {
         </p>
 
         <p className="text-xs text-muted-foreground">
-          © 2025 PactGuard. Built by Pulast for AgentHacks2025 using Portia AI. This tool provides educational analysis and should not replace professional legal advice.
+          © 2024 PactGuard. This tool provides educational analysis and should not replace professional legal advice.
         </p>
       </footer>
     </div>
