@@ -91,7 +91,9 @@ npm run dev
 
 ### Live Demo
 
-_(Add your deployed demo link here)_
+<img width="532" height="390" alt="Screenshot 2025-08-25 at 3 28 31 PM" src="https://github.com/user-attachments/assets/4a680a92-0ece-47d3-837d-21afe130a083" />
+<img width="532" height="469" alt="Screenshot 2025-08-25 at 3 28 47 PM" src="https://github.com/user-attachments/assets/8cdc0013-2c12-44ea-a205-e2cfe01ea5dd" />
+
 
 ### Key Workflows
 
