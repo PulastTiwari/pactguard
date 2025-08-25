@@ -262,7 +262,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 See [ROADMAP.md](ROADMAP.md) for the complete technical roadmap.
 
-## Security ## Security & Privacy Privacy
+## Security & Privacy
 
 - Environment-based configuration for secure credential management
 - No storage of sensitive legal documents on servers
@@ -283,14 +283,14 @@ See [SECURITY.md](SECURITY.md) for security policies and reporting procedures.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Portia AI](https://www.portia.ai/) for AI orchestration platform
 - [Google AI](https://ai.google/) for Gemini LLM integration
 - [AgentHacks 2025](https://agenthacks.com/) for the development opportunity
 - The open source community for inspiration and tools
 
-## 📞 Support & Contact
+## Support & Contact
 
 - **Issues**: [GitHub Issues](https://github.com/PulastTiwari/pactguard/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/PulastTiwari/pactguard/discussions)
